@@ -1,50 +1,40 @@
-# Welcome to your Expo app 👋
+# ImageDemo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Đây là một ứng dụng được tạo bằng [Expo](https://expo.dev) sử dụng `create-expo-app`.
 
-## Get started
+## 🚀 Bắt đầu
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### 1. Cài đặt phụ thuộc
 
 ```bash
+npm install
+2. Chạy app
+bash
+Copy
+Edit
+npx expo start
+📂 Cấu trúc
+Dự án sử dụng cấu trúc thư mục app/ và hỗ trợ file-based routing.
+
+🔄 Reset nhanh dự án
+bash
+Copy
+Edit
 npm run reset-project
-```
+Lệnh này sẽ di chuyển code mẫu sang app-example/ và tạo thư mục app/ trống để bạn phát triển.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+📚 Tài liệu
+Tài liệu Expo
 
-## Learn more
+Hướng dẫn học Expo
 
-To learn more about developing your project with Expo, look at the following resources:
+Cộng đồng Expo trên Discord
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+yaml
+Copy
+Edit
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+Bạn có thể copy toàn bộ và dán vào file `README.md`, sau đó:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
