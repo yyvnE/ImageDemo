@@ -1,12 +1,3 @@
-# ImageDemo
-
-Đây là một ứng dụng được tạo bằng [Expo](https://expo.dev) sử dụng `create-expo-app`.
-
-## 🚀 Bắt đầu
-
-
-
-```bash
 npm install
 2. Chạy app
 bash
@@ -21,7 +12,6 @@ bash
 Copy
 Edit
 npm run reset-project
-
 
 
 

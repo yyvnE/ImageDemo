@@ -1,5 +1,4 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function DetailScreen() {
@@ -9,16 +8,16 @@ export default function DetailScreen() {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-        <Text style={styles.backText}> *BACK*</Text>
+        <Text style={styles.backText}>BACK</Text>
       </TouchableOpacity>
 
       {imageUrl ? (
-        <>
-          <Text style={styles.title}>Ảnh chi tiết</Text>
-          <Image source={{ uri: imageUrl as string }} style={styles.image} />
-        </>
+        <Image
+          source={{ uri: imageUrl as string }}
+          style={styles.image}
+        />
       ) : (
-        <Text>Không có ảnh để hiển thị</Text>
+        <Text>Không có ảnh</Text>
       )}
     </View>
   );
@@ -27,27 +26,24 @@ export default function DetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 100,
-  },
-  title: {
-    fontSize: 22,
-    marginBottom: 12,
-  },
-  image: {
-    width: 320,
-    height: 240,
-    borderRadius: 10,
   },
   backButton: {
     position: 'absolute',
-    top: 10,
-    left: 10,
+    top: 40,
+    left: 20,
+    zIndex: 1,
     padding: 10,
   },
   backText: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#007AFF',
+  },
+  image: {
+    width: 320,
+    height: 420,
+    borderRadius: 10,
   },
 });
