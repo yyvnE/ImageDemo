@@ -1,7 +1,7 @@
+import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-
 export default function SearchScreen() {
   const [searchText, setSearchText] = useState('');
   const [images, setImages] = useState<PexelsPhoto[]>([]);
@@ -46,7 +46,7 @@ const handleSearch = async () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tìm chủ đề ảnh</Text>
-
+      <View style= {styles.searchRow}>
       <TextInput
         value={searchText}
         onChangeText={setSearchText}
@@ -54,10 +54,10 @@ const handleSearch = async () => {
         style={styles.input}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleSearch}>
-        <Text style={styles.buttonText}>Tìm</Text>
+      <TouchableOpacity style={styles.iconButton} onPress={handleSearch}>
+        <Ionicons name="search" size={20} color="#fff" />
       </TouchableOpacity>
-
+      </View>
       {!hasSearched ? (
         <Text style={styles.greeting}>Xin chào! Nhập một chủ đề và bấm Tìm để xem ảnh.</Text>
       ) : images.length === 0? (
@@ -97,18 +97,32 @@ const handleSearch = async () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16 },
-  title: { fontSize: 20, marginBottom: 10, textAlign: 'center' },
+  title: { fontSize: 30, marginBottom: 10, textAlign: 'left' },
   input: {
-    borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10, borderRadius: 8,
+    borderWidth: 2, borderColor: '#ccc', padding: 10, marginBottom: 1, borderRadius: 10,
+    width: 350
+  },
+  searchRow:{
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   button: {
-    backgroundColor: '#007AFF', padding: 12, borderRadius: 8, alignItems: 'center', marginBottom: 20,
+    backgroundColor: '#007AFF', padding: 10, borderRadius: 10, alignItems: 'flex-end', marginBottom: 10,
   },
+  iconButton: {
+  backgroundColor: '#007BFF',
+  padding: 10,
+  borderRadius: 10,
+  height: 40,
+  width: 40,
+},
+
   buttonText: { color: '#fff', fontWeight: 'bold' },
   greeting: { textAlign: 'center', fontStyle: 'italic' },
   image: { width: '48%', height: 150, margin: '1%' },
   retryButton: {
-  marginTop: 12,
+  marginTop: 10,
   paddingVertical: 10,
   paddingHorizontal: 20,
   backgroundColor: '#007AFF',

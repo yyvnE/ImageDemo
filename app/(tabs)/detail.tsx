@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     color: '#007AFF',
   },
   image: {
-    width: 320,
+    width: 330,
     height: 420,
     borderRadius: 10,
   },
