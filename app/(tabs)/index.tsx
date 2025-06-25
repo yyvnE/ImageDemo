@@ -38,72 +38,54 @@ export default function SearchScreen() {
   }, [searchText]);
 
   const fetchImages = async (isNewSearch = false) => {
-  // Nếu không có nội dung tìm kiếm hoặc đang tải, thì dừng luôn
   if (!searchText.trim() || loading) {
     return;
   }
 
-  // Đặt trạng thái đang tải để tránh gọi API nhiều lần
   setLoading(true);
 
   try {
-    // Tạo biến xác định trang cần gọi
     let currentPage;
     if (isNewSearch) {
-      // Nếu là tìm kiếm mới, luôn bắt đầu từ trang 1
       currentPage = 1;
     } else {
-      // Nếu đang cuộn để tải thêm, thì giữ nguyên page hiện tại
       currentPage = page;
     }
 
-    // Gọi API Pexels, truyền từ khóa và số trang cần lấy
     const response = await fetch(
       `https://api.pexels.com/v1/search?query=${searchText}&per_page=10&page=${currentPage}`,
       {
         headers: {
-          // Gửi API key vào phần headers để xác thực
           Authorization: 'PXu96W6QKd5KsGbMAW6t28Zfbht6Puf7T5Lmd57zmd027fWtjwRUGgVW',
         },
       }
     );
 
-    // Chuyển dữ liệu JSON từ API thành object JavaScript
     const data = await response.json();
 
-    // Tạo biến chứa danh sách ảnh mới
     let newPhotos;
     if (isNewSearch) {
-      // Nếu tìm mới thì chỉ dùng ảnh mới
       newPhotos = data.photos;
     } else {
-      // Nếu tải thêm thì nối ảnh cũ với ảnh mới
       newPhotos = [...images, ...data.photos];
     }
 
-    // Cập nhật danh sách ảnh lên UI
     setImages(newPhotos);
-
-    // Đánh dấu rằng đã từng tìm kiếm
     setHasSearched(true);
 
-    // Tăng số trang để lần sau gọi tiếp
     if (isNewSearch) {
-      // Nếu vừa mới tìm, trang kế tiếp là 2
       setPage(2);
     } else {
-      // Nếu đang cuộn thì tăng lên 1
       setPage(prev => prev + 1);
     }
   } catch (error) {
-    // Nếu có lỗi khi gọi API, ghi log và vẫn đánh dấu đã tìm
     console.error('Lỗi khi tìm ảnh:', error);
     setHasSearched(true);
   } finally {
-    // Sau khi gọi xong (dù thành công hay lỗi), tắt trạng thái loading
     setLoading(false);
   }
 };
+
 
 
   const handleSearch = () => {
